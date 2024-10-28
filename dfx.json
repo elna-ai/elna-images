@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "elna-images-backend": {
+      "candid": "src/elna-images-backend/elna-images-backend.did",
+      "package": "elna-images-backend",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
