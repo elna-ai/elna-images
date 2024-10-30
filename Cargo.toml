@@ -1,5 +1,5 @@
 [workspace]
 members = [
-    "src/elna-images-backend"
+    "src/elna_images_backend"
 ]
 resolver = "2"

@@ -1,9 +1,16 @@
 {
   "canisters": {
-    "elna-images-backend": {
-      "candid": "src/elna-images-backend/elna-images-backend.did",
-      "package": "elna-images-backend",
-      "type": "rust"
+    "elna_images_backend": {
+      "candid": "src/elna_images_backend/elna_images_backend.did",
+      "package": "elna_images_backend",
+      "build": ["bash ./build.sh elna_images_backend"],
+      "metadata": [
+        {
+          "name": "candid:service"
+        }
+      ],
+      "type": "custom",
+      "wasm": "target/wasm32-unknown-unknown/release/elna_images_backend.wasm"
     }
   },
   "defaults": {

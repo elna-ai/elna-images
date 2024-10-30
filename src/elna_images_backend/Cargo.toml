@@ -1,5 +1,5 @@
 [package]
-name = "elna-images-backend"
+name = "elna_images_backend"
 version = "0.1.0"
 edition = "2021"
 
@@ -11,4 +11,6 @@ crate-type = ["cdylib"]
 [dependencies]
 candid = "0.10"
 ic-cdk = "0.16"
-ic-cdk-timers = "0.10" # Feel free to remove this dependency if you don't need timers
+ic-stable-structures = "0.6.5"
+serde="1.0.197"
+thiserror = "1.0.40"
