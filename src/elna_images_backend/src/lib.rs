@@ -106,18 +106,6 @@ fn add_asset(new_asset: Asset, prefix: Option<String>) -> Result<String, Error> 
 #[ic_cdk::update]
 fn delete_asset(asset_id: String) -> Result<String, Error> {
     let caller = ic_cdk::caller();
-    match check_if_owner(caller) {
-        Err(error) => {
-            ic_cdk::println!(
-                "fn: delete_assets, Err:{}, caller:{},asset_id:{}",
-                error,
-                caller,
-                asset_id
-            );
-            return Err(error);
-        }
-        Ok(_) => (),
-    };
 
     ASSETS.with(|assets| {
         let mut assets = assets.borrow_mut();
