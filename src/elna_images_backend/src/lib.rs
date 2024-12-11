@@ -160,7 +160,7 @@ fn add_asset(new_asset: Asset, prefix: Option<String>) -> Result<String, Error> 
                 Err(_) => return Err(Error::UnableToReadLastId),
                 Ok(id) => id,
             };
-            let id = last_id + 1;
+            let id: u64 = last_id + 1;
             let final_id = format!("{}{}", prefix.unwrap_or("".to_string()), id);
             ic_cdk::println!(
                 "fn:add_asset, caller:{},new_id:{},last_id:{}",
@@ -175,7 +175,7 @@ fn add_asset(new_asset: Asset, prefix: Option<String>) -> Result<String, Error> 
             STATE.with(|state| {
                 state
                     .borrow_mut()
-                    .insert("last_id".to_string(), final_id.clone())
+                    .insert("last_id".to_string(), id.to_string())
             });
 
             Ok(final_id)
