@@ -10,8 +10,15 @@ pub enum Error {
 
     #[error("User not authorized")]
     Unauthorized,
+
     #[error("Unable to delete asset")]
     UnableToDelete,
+
+    #[error("Unable to update last id")]
+    UnableToUpdate,
+
+    #[error("Unable to read last id")]
+    UnableToReadLastId,
 }
 impl From<Error> for String {
     fn from(error: Error) -> Self {
