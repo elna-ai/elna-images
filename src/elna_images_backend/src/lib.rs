@@ -142,15 +142,16 @@ fn get_asset(asset_id: String) -> Option<Asset> {
 
 #[ic_cdk::update]
 fn add_asset(new_asset: Asset, prefix: Option<String>) -> Result<String, Error> {
+    ic_cdk::println!("in FN add asset");
     let caller = ic_cdk::caller();
-    if caller != new_asset.owner {
-        ic_cdk::println!(
-            "fn:add_asset, caller:{},asset_owner:{}",
-            caller,
-            new_asset.owner
-        );
-        return Err(Error::UploaderMismatch);
-    }
+    // if caller != new_asset.owner {
+    //     ic_cdk::println!(
+    //         "fn:add_asset, caller:{},asset_owner:{}",
+    //         caller,
+    //         new_asset.owner
+    //     );
+    //     return Err(Error::UploaderMismatch);
+    // }
 
     let last_id = STATE.with(|state| state.borrow().get(&"last_id".to_string()));
     match last_id {
